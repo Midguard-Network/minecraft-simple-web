@@ -1,6 +1,6 @@
 # Minecraft Simple Website Configuration Documentation
 
-This document provides a detailed explanation of the configuration file for Midguard Network. The configuration file contains settings that control the application's behavior, appearance, and integrations.
+This document provides a detailed explanation of the configuration file for Minecraft Simple Website. The configuration file contains settings that control the application's behavior, appearance, and integrations.
 
 ## Configuration Structure
 
@@ -30,6 +30,18 @@ This section specifies theming options for the application.
 
 - **`defaultTheme`** *(string)*: The default theme applied to the application. Example: `Orange`.
 
+Can be :
+ - Default
+ - Light
+ - Dark
+ - Red
+ - Purple
+ - Orange
+ - Pink
+ - Lemon
+ - Ocean
+
+
 ---
 
 ### `text`
@@ -50,7 +62,7 @@ This section configures image settings for the application.
 
 ### `discord_module`
 
-This section manages the Discord integration.
+This section manages the Discord integration. will display a discord module on the home page
 
 - **`enabled`** *(boolean)*: Whether the Discord module is enabled. Example: `true`.
 - **`discordID`** *(string)*: The Discord server's ID. Example: `1042193541197209651`.
