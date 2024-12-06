@@ -7,6 +7,7 @@ This document provides a detailed explanation of the configuration file for Midg
 The configuration file is in JSON format and contains the following sections:
 
 ### `app_info`
+
 This section contains information about the application.
 
 - **`name`** *(string)*: The name of the application. Example: `Midguard Network`.
@@ -15,6 +16,7 @@ This section contains information about the application.
 ---
 
 ### `server_info`
+
 This section defines the Minecraft server details.
 
 - **`ip`** *(string)*: The IP address of the Minecraft server. Example: `play.midguardnetwork.net`.
@@ -23,6 +25,7 @@ This section defines the Minecraft server details.
 ---
 
 ### `theme`
+
 This section specifies theming options for the application.
 
 - **`defaultTheme`** *(string)*: The default theme applied to the application. Example: `Orange`.
@@ -30,6 +33,7 @@ This section specifies theming options for the application.
 ---
 
 ### `text`
+
 This section allows you to customize text displayed in the application.
 
 - **`welcomeMessage`** *(string)*: A welcome message displayed to users. Example: `"You can welcome the player to your website there."`
@@ -37,6 +41,7 @@ This section allows you to customize text displayed in the application.
 ---
 
 ### `images`
+
 This section configures image settings for the application.
 
 - **`logo`** *(string)*: The URL of the logo displayed in the application. Example: `https://midguardnetwork.com/storage/img/logo.png`.
@@ -44,6 +49,7 @@ This section configures image settings for the application.
 ---
 
 ### `discord_module`
+
 This section manages the Discord integration.
 
 - **`enabled`** *(boolean)*: Whether the Discord module is enabled. Example: `true`.
@@ -53,6 +59,7 @@ This section manages the Discord integration.
 ---
 
 ### `web_map`
+
 This section defines the web map settings.
 
 - **`activated`** *(boolean)*: Whether the web map feature is enabled. Example: `true`.
@@ -62,6 +69,7 @@ This section defines the web map settings.
 ---
 
 ### `socials`
+
 This section manages links to social platforms.
 
 Each object in the array has the following properties:
@@ -76,60 +84,60 @@ Each object in the array has the following properties:
 
 ```json
 {
-  "app_info": {
-    "name": "Midguard Network",
-    "version": "1.0.0"
-  },
-  "server_info": {
-    "ip": "play.midguardnetwork.net",
-    "port": 25565
-  },
-  "theme": {
-    "defaultTheme": "Orange"
-  },
-  "text": {
-    "welcomeMessage": "You can welcome the player to your website there."
-  },
-  "images": {
-    "logo": "https://midguardnetwork.com/storage/img/logo.png"
-  },
-  "discord_module": {
-    "enabled": true,
-    "discordID": "1042193541197209651",
-    "invitation_link": ""
-  },
-  "web_map": {
-    "activated": true,
-    "type" : "blue-map",
-    "url": "https://dynmap.midguardnetwork.net/"
-  },
-  "socials": [
-    {
-      "enabled": true,
-      "icon": "logo-discord",
-      "url": ""
+   "app_info": {
+     "name": "Midguard Network",
+     "version": "1.0.0"
+   },
+   "server_info": {
+     "ip": "play.midguardnetwork.net",
+     "port": 25565
+   },
+    "theme": {
+      "defaultTheme": "Orange"
     },
-    {
-      "enabled": true,
-      "icon": "logo-github",
-      "url": ""
+    "text": {
+        "welcomeMessage": "You can welcome the player to your website there."
     },
-    {
-      "enabled": true,
-      "icon": "logo-instagram",
-      "url": ""
+    "images": {
+        "logo": "https://midguardnetwork.com/storage/img/logo.png"
     },
-    {
+    "discord_module": {
       "enabled": true,
-      "icon": "logo-youtube",
-      "url": "https://www.youtube.com/@MidGuardSmp"
+      "discordID": "1042193541197209651",
+      "invitation_link": ""
     },
-    {
-      "enabled": true,
-      "icon": "logo-tiktok",
-      "url": ""
-    }
-  ]
+    "web_map": {
+      "activated": true,
+      "type" : "blue-map",
+      "url": "https://dynmap.midguardnetwork.net/"
+    },
+    "socials": [
+      {
+        "enabled": true,
+        "icon": "logo-discord",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-github",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-instagram",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-youtube",
+        "url": "https://www.youtube.com/@MidGuardSmp"
+      },
+      {
+        "enabled": true,
+        "icon": "logo-tiktok",
+        "url": ""
+      }
+    ]
 }
 ```
 
@@ -138,31 +146,41 @@ Each object in the array has the following properties:
 ## How to Use
 
 1. **Edit the Configuration File**: Customize the JSON file to match your application's requirements.
-2. **Place the Configuration File**: Ensure the file is located at `assets/config/config.json` in your project.
----
 
-## Installation on a Standard Web Server
+2. **Place the Configuration File**: Ensure the file is located at `assets/config/config.json` in your project.
+
+3. **Move Contents**: Drag the contents of the `www/browser` folder into your server's `www` directory.
 
 ### Apache Configuration
 
-1. Enable the required modules:
+1. Enable the necessary Apache modules:
+
    ```bash
    a2enmod rewrite
+   a2enmod headers
    ```
 
-2. Ensure the `.htaccess` file allows rewrites. Add the following to your Apache virtual host or `.htaccess` file:
+2. Update your Apache configuration file (e.g., `/etc/apache2/sites-available/your-site.conf`) with the following:
+
    ```apache
-   <Directory /path/to/your/app>
-       AllowOverride All
-   </Directory>
-   
-   RewriteEngine On
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^ index.html [L]
+   <VirtualHost *:80>
+       ServerName your-domain.com
+
+       DocumentRoot /path/to/your/app
+
+       <Directory /path/to/your/app>
+           Options Indexes FollowSymLinks
+           AllowOverride All
+           Require all granted
+       </Directory>
+
+       ErrorLog ${APACHE_LOG_DIR}/error.log
+       CustomLog ${APACHE_LOG_DIR}/access.log combined
+   </VirtualHost>
    ```
 
 3. Restart Apache:
+
    ```bash
    systemctl restart apache2
    ```
@@ -170,6 +188,7 @@ Each object in the array has the following properties:
 ### Nginx Configuration
 
 1. Update your Nginx configuration file to include the following:
+
    ```nginx
    server {
        listen 80;
@@ -185,6 +204,7 @@ Each object in the array has the following properties:
    ```
 
 2. Restart Nginx:
+
    ```bash
    systemctl restart nginx
    ```
