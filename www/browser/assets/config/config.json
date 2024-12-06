@@ -1,0 +1,56 @@
+{
+   "app_info": {
+     "name": "Midguard Network",
+      "version": "1.0.0,"
+   },
+   "server_info": {
+     "ip": "play.midguardnetwork.net",
+     "port": 25565
+   },
+    "theme": {
+      "defaultTheme": "Orange"
+    },
+    "text": {
+        "welcomeMessage": "You can welcome the player to your website there , i've just add a lot of text there to complete in the site but you can delete it if you want"
+    },
+    "images": {
+        "logo": "https://midguardnetwork.com/storage/img/logo.png"
+    },
+    "discord_module": {
+      "enabled": true,
+      "discordID": "1042193541197209651",
+      "invitation_link": ""
+    },
+    "web_map": {
+      "activated": true,
+      "type" : "blue-map",
+      "url": "https://dynmap.midguardnetwork.net/"
+    },
+    "socials": [
+      {
+        "enabled": true,
+        "icon": "logo-discord",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-github",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-instagram",
+        "url": ""
+      },
+      {
+        "enabled": true,
+        "icon": "logo-youtube",
+        "url": "https://www.youtube.com/@MidGuardSmp"
+      },
+      {
+        "enabled": true,
+        "icon": "logo-tiktok",
+        "url": ""
+      }
+    ]
+}
