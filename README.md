@@ -109,7 +109,8 @@ Each object in the array has the following properties:
 {
    "app_info": {
      "name": "Midguard Network",
-     "version": "1.0.0"
+     "version": "1.0.0",
+     "default_language": "en"
    },
    "server_info": {
      "ip": "play.midguardnetwork.net",
