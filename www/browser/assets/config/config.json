@@ -1,7 +1,8 @@
 {
    "app_info": {
      "name": "Midguard Network",
-      "version": "1.0.0,"
+      "version": "1.0.0,",
+      "default_lang": "en"
    },
    "server_info": {
      "ip": "play.midguardnetwork.net",

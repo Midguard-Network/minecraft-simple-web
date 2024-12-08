@@ -10,9 +10,20 @@ The configuration file is in JSON format and contains the following sections:
 
 This section contains information about the application.
 
-- **`name`** *(string)*: The name of the application. Example: `Midguard Network`.
-- **`version`** *(string)*: The version of the application. Example: `1.0.0`.
-
+- **name** *(string)*: The name of the application. Example: `Midguard Network`.
+- **version** *(string)*: The version of the application. Example: `1.0.0`.
+- **default_language** *(string)*: Default lang of the app. Example: `en`.  
+  Can be :
+  - en: en_en (English),
+  - fr: fr_fr (French),
+  - it: it_it (Italian),
+  - es: es_es (Spanish),
+  - de: de_de (German),
+  - pt: pt_pt (Portuguese), 
+  - ro: ro_ro (Romanian),
+  - ru: ru_ru (Russian),
+  - zh: zh_cn (Chinese (Simplified)),
+  - nl: nl_nl (Netherlands),
 ---
 
 ### `server_info`
